@@ -27,11 +27,17 @@ class Film {
     Film(const string &a, const string &b);
 
     // Pre: cert
-    // Post: el resultat és un film amb nom a, de génere b i amb c valoracions i puntuacio d.
+    // Post: el resultat és un film amb nom a, de génere b i amb puntuacio c i d valoracions.
     Film(const string &a, const string &b, const double &c, const int &d);
-
+    
+/*
+    //Pre: cert
+    // Post: el resultat és un film sense nom i sense gènere, amb puntuacio c i d valoracions.
+    Film(const double &c, const int &d);  
+*/
 
     // Destructor
+    // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
     ~Film();
 
             
@@ -62,8 +68,6 @@ class Film {
     // Pre: novaval té un enter de l'1 al 5.
     // Post: puntuacio conté la puntuació mitjana contant la nova valoració, i nval augmenta en 1.
     void novaValoracio(const int &novaval);
-    /*puntuacio = ((puntuacio*nval + novaval)/(nval + 1));
-    ++nval;*/
             
     // Lectura i escriptura
     
@@ -71,17 +75,16 @@ class Film {
     // Post: s'han escrit els atributs del Film f al canal estandard de sortida
     friend ostream& operator<<(ostream &os, const Film &f);
     
-    friend istream& operator>>(istream &is, Film &f);
     // Pre: cert
     // Post: el film f passa a tenir els atributs llegits del canal estandard d'entrada
+    friend istream& operator>>(istream &is, Film &f);
 
-
-
+    
     private:
 
     // Implementació de la classe Film 
     // (definició del tipus i nom de cada atribut)
-    string titol;
+    string nom;
     string genere;
     double puntuacio;
     int nval;
