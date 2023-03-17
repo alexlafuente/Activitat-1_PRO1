@@ -10,7 +10,7 @@ class Film {
     // el seu títol, gènere, puntuació total obtinguda en les valoracions i
     // nombre de valoracions que ha rebut
 
-    public:
+public:
 
     // ESPECIFICACIÓ DE LA CLASSE FILM
     // (especificació Pre/Post de tots els mètodes)
@@ -21,6 +21,10 @@ class Film {
     // Pre: cert
     // Post: el resultat és un film sense nom, génere i amb 0 valoracions i puntuacio 0.
     Film();
+    
+    // Pre: cert
+    // Post: el resultat és un film igual a f.
+    Film(const Film &f);
 
     // Pre: cert
     // Post: el resultat és un film amb nom a, de génere b i amb 0 valoracions i puntuacio 0.
@@ -61,7 +65,7 @@ class Film {
     
     // Pre: f té una valoració.
     // Post: retorna si f està millor valorat.
-    bool millorValorat(Film f) const;
+    bool millorValorat(const Film &f) const;
     
     // Modificadors
     
@@ -80,7 +84,7 @@ class Film {
     friend istream& operator>>(istream &is, Film &f);
 
     
-    private:
+private:
 
     // Implementació de la classe Film 
     // (definició del tipus i nom de cada atribut)

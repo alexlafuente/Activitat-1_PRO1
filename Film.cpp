@@ -15,6 +15,12 @@ Film::Film(){
 }
 
 // Pre: cert
+// Post: el resultat és un film igual a f.
+Film::Film(const Film &f){
+    *this = f;
+}
+
+// Pre: cert
 // Post: el resultat és un film amb nom a, de génere b i amb 0 valoracions i puntuacio 0.
 Film::Film(const string &a, const string &b){
     nom = a;
@@ -76,7 +82,7 @@ int Film::numvots() const{
 // Post: retorna si f està millor valorat.
 bool Film::millorValorat(Film f) const{
     bool millor = false;
-    if(*this puntuacio > f.puntuacio){
+    if(this->puntuacio > f.puntuacio){
         millor = true;
     }
     else if(this->puntuacio == f.puntuacio()){
