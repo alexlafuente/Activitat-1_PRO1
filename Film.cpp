@@ -79,8 +79,8 @@ bool Film::millorValorat(Film f) const{
     if(*this puntuacio > f.puntuacio){
         millor = true;
     }
-    else if(*this puntuacio == f.puntuacio()){
-        if(*this nval > f.nval){
+    else if(this->puntuacio == f.puntuacio()){
+        if(this->nval > f.nval){
             millor = true;
         }
     }
