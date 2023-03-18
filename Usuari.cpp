@@ -28,7 +28,7 @@ Usuari::Usuari(const string &a){
 
 // Pre: cert
 // Post: el resultat és un usuari amb sobrenom a, amb identificador i, amb 0 valoracions enregistrades.
-Usuari(const string &a, const int &i){
+Usuari::Usuari(const string &a, const int &i){
     nickname = a;
     id = i;
     numval = 0;
