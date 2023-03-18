@@ -18,7 +18,7 @@ public:
     // Constructors
     
     // Pre: cert
-    // Post: el resultat és un usuari amb sobrenom buit, sense cap valoració enregistrada i amb identificador 0.
+    // Post: el resultat és un usuari amb sobrenom buit, amb identificador 0 i sense cap valoració enregistrada.
     Usuari();
     
     // Pre: cert
@@ -26,7 +26,7 @@ public:
     Usuari(const Usuari &u);
     
     // Pre: cert
-    // Post: el resultat és un usuari amb sobrenom a, i sense cap valoració enregistrada i amb identificador 0.
+    // Post: el resultat és un usuari amb sobrenom a, amb identificador 0 i sense cap valoració enregistrada.
     Usuari(const string &a);
     
     // Pre: cert
@@ -70,6 +70,10 @@ public:
     // Pre: cert
     // Post: el nombre de valoracions enregistrades augmenta en 1
     void augmentaValoracions();
+    
+    // Pre: cert
+    // Post: s'assigna l'identificador i a l'usuari.
+    void assignaIdentificador(const int &i);
                 
     // Lectura i escriptura
     
