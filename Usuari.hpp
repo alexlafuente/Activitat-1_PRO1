@@ -65,6 +65,10 @@ public:
     // Post: retorna el nombre de valoracions enregistrades per l'usuari.
     int valoracions() const;
     
+    // Pre: cert
+    // Post: retorna el punt u
+    Usuari operator=(const Usuari &u) const;
+    
     // Modificadors
     
     // Pre: cert

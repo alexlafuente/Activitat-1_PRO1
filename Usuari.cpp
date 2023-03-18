@@ -72,6 +72,12 @@ int Usuari::valoracions() const{
 }
 
 // Pre: cert
+// Post: retorna el punt u
+Usuari Usuari::operator=(const Usuari &u) const{
+    return u;
+}
+
+// Pre: cert
 // Post: el nombre de valoracions enregistrades augmenta en 1
 void Usuari::augmentaValoracions(){
     ++numval;
@@ -86,11 +92,13 @@ void Usuari::assignaIdentificador(const int &i){
 // Pre: cert (completem els detalls de format quan coneguem la implementacio)
 // Post: s'han escrit els atributs de l'Usuari u al canal estandard de sortida
 ostream& operator<<(ostream &os, const Usuari &u){
-    os << id << " | " << nickname << " | " << numval << endl;
+    os << u.id << " | " << u.nickname << " | " << u.numval << endl;
+    return os;
 }
 
 // Pre: cert
 // Post: l'Usuari u passa a tenir els atributs llegits del canal estandard d'entrada
 istream& operator>>(istream &is, Usuari &u){
-    is >> nickname;
+    is >> u.nickname;
+    return is;
 }
