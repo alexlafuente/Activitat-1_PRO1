@@ -86,7 +86,7 @@ void Usuari::assignaIdentificador(const int &i){
 // Pre: cert (completem els detalls de format quan coneguem la implementacio)
 // Post: s'han escrit els atributs de l'Usuari u al canal estandard de sortida
 ostream& operator<<(ostream &os, const Usuari &u){
-    os << id << " | " << numval << endl;
+    os << id << " | " << nickname << " | " << numval << endl;
 }
 
 // Pre: cert
