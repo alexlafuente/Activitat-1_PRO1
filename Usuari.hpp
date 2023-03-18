@@ -33,6 +33,10 @@ public:
     // Post: el resultat és un usuari amb sobrenom a, amb identificador i, amb 0 valoracions enregistrades.
     Usuari(const string &a, const int &i);
     
+    // Pre: cert
+    // Post: retorna un punt igual a u.
+    Usuari operator=(const Usuari &u);
+    
     /*
      * // Pre: cert
      * // Post: el resultat és un usuari amb sobrenom buit, amb identificador i, amb 0 valoracions enregistrades.
@@ -64,10 +68,6 @@ public:
     // Pre: cert
     // Post: retorna el nombre de valoracions enregistrades per l'usuari.
     int valoracions() const;
-    
-    // Pre: cert
-    // Post: retorna el punt u
-    Usuari operator=(const Usuari &u) const;
     
     // Modificadors
     

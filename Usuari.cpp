@@ -34,6 +34,15 @@ Usuari::Usuari(const string &a, const int &i){
     numval = 0;
 }
 
+// Pre: cert
+// Post: retorna un punt igual a u.
+Usuari Usuari::operator=(const Usuari &u){
+    this->id = u.id;
+    this->nickname = u.nickname;
+    this->numval = u.numval;
+    return *this;
+}
+
 /*
 * // Pre: cert
 * // Post: el resultat és un usuari amb sobrenom buit, amb identificador i, amb 0 valoracions enregistrades.
@@ -53,6 +62,10 @@ Usuari::Usuari(const string &a, const int &i){
 * }
 */
 
+// Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
+Usuari::~Usuari(){
+}
+
 // Pre: cert
 // Post: retorna l'identificador de l'usuari.
 int Usuari::identificador() const{
@@ -69,12 +82,6 @@ string Usuari::sobrenom() const{
 // Post: retorna el nombre de valoracions enregistrades per l'usuari.
 int Usuari::valoracions() const{
     return numval;
-}
-
-// Pre: cert
-// Post: retorna el punt u
-Usuari Usuari::operator=(const Usuari &u) const{
-    return u;
 }
 
 // Pre: cert

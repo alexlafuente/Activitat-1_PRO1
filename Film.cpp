@@ -38,6 +38,16 @@ Film::Film(const string &a, const string &b, const double &c, const int &d){
     nval = d;
 }
 
+// Pre: cert
+// Post: retorna un film igual a f
+Film Film::operator=(const Film &f){
+    this->nom = f.nom;
+    this->genere = f.genere;
+    this->puntuacio = f.puntuacio;
+    this->nval = f.nval;
+    return *this;
+}
+
 /*
 //Pre: cert
 // Post: el resultat és un film sense nom i sense gènere, amb puntuacio c i d valoracions.
@@ -50,7 +60,8 @@ Film::Film(const double &c, const int &d){
  */
 
 // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
-Film::~Film();
+Film::~Film(){
+}
 
 // Consultors
 
@@ -80,12 +91,12 @@ int Film::numvots() const{
 
 // Pre: f té una valoració.
 // Post: retorna si f està millor valorat.
-bool Film::millorValorat(Film f) const{
+bool Film::millorValorat(const Film &f) const{
     bool millor = false;
     if(this->puntuacio > f.puntuacio){
         millor = true;
     }
-    else if(this->puntuacio == f.puntuacio()){
+    else if(this->puntuacio == f.puntuacio){
         if(this->nval > f.nval){
             millor = true;
         }
