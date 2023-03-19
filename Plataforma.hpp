@@ -75,15 +75,30 @@ public:
     // Post: retorna el film de la plataforma amb la millor valoració mitjana.
     Film recomanarMillorFilm() const;
     
-    // Pre: cert
+    // Pre: n > 0
     // Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
     vector<Film> mostrarMillorsFilms(const int &n) const;
+    
+    // Pre: cert
+    // Post: retorna true si a la plataforma existeix algun film de nom f
+    bool existeixFilm(const string &f) const;
+    
+    // Pre: cert
+    // Post: retorna true si a la plataforma existeix algun usuari de nom u
+    bool existeixUsuari(const string &u) const;
+    
+    // Pre: cert
+    // Post: retorna la quantitat de films que hi ha a la plataforma.
+    int nombreTotalFilms() const;
 
     // Modificadors
     
     // Pre: 1 <= n >= 5
-    // Post: es fa la valoració mitjana del film que correspon a l'string u, emprant l'enter n, i s'augmenta en 1 el nombre de valoracions del film i l'usuari
-    void enregistrarValoracio(const int &n, const string &u);  
+    /* Post: es calcula la valoració mitjana d'aquell film que el seu nom correspon a l'string f, afegint l'enter n al càlcul.
+     * També s'augmenten en 1 el nombre de valoracions d'aquest film, i el nombre de valoracions enregistrades d'aquell usuari que el seu nom correspon a 
+     * l'string u.
+     */
+    void enregistrarValoracio(const string &u, const string &f, const int &n); // Para detectar si el usuario o la pelicula existen, usar los consultores.
                 
     // Lectura i escriptura
     
@@ -100,7 +115,7 @@ private:
     // Implementació de la classe Plataforma 
     // (definició del tipus i nom de cada atribut)
     string nom;
-    vector<Film> films;
-    vector<Usuari> usuaris;
+    vector<Film> films; // Para detectar si la pelicula existe, antes de hacer push al vector, i augmentar en 1 la variable del id, usar los consultores.
+    vector<Usuari> usuaris; // Para detectar si el usuario existe, antes de hacer push al vector, i augmentar en 1 la variable del id, usar los consultores.
 };
 #endif
