@@ -35,7 +35,7 @@ public:
     Usuari(const string &a, const int &i);
     
     // Pre: cert
-    // Post: retorna un punt igual a u.
+    // Post: retorna un Usuari igual a u.
     Usuari operator=(const Usuari &u);
     
     /*

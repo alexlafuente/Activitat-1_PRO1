@@ -35,7 +35,7 @@ Usuari::Usuari(const string &a, const int &i){
 }
 
 // Pre: cert
-// Post: retorna un punt igual a u.
+// Post: retorna un Usuari igual a u.
 Usuari Usuari::operator=(const Usuari &u){
     this->id = u.id;
     this->nickname = u.nickname;
