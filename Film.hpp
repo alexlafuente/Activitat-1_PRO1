@@ -2,6 +2,7 @@
 #define FILM_H
 #include <iomanip>    // per indicar nombre de dígits en la part decimal amb setprecision()
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Film {

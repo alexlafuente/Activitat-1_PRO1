@@ -2,6 +2,7 @@
 #define USUARI_H
 #include "Film.hpp"
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Usuari {
