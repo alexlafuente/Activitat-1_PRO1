@@ -88,13 +88,23 @@ public:
     bool existeixUsuari(const string &u) const;
     
     // Pre: cert
+    // Post: retorna true si la plataforma conté algun film
+    bool hiHaFilms() const;
+    
+    // Pre: cert
+    // Post: retorna true si la plataforma conté algun usuari
+    bool hiHaUsuaris() const;
+    
+    /*
+    // Pre: cert
     // Post: retorna la quantitat de films total que hi ha a la plataforma.
     int nombreTotalFilms() const; // si es 0 --> No hi ha films enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la quantitat de films de gènere g que hi ha a la plataforma.
     int nombreTotalFilmsGenere(const string &g) const; // si es 0 --> No hi ha films de gènere "g" a "Plataforma"
-
+    */
+    
     // Modificadors
     
     // Pre: 1 <= n >= 5
