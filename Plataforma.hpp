@@ -61,23 +61,23 @@ public:
     
     // Pre: cert
     // Post: retorna la llista de films que conte la plataforma
-    vector<Films> mostrarFilms() const;
+    vector<Films> Films() const; // si mida == 0 --> No hi ha usuaris enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la llista d'usuaris que conte la plataforma
-    vector<Usuaris> mostrarUsuaris() const;
+    vector<Usuaris> Usuaris() const; // si mida == 0 --> No hi ha films enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la llista de films, dels quals el seu gènere coincideix amb l'especificat a g.
-    vector<Films> mostrarFilmsGenere(const string &g) const;
+    vector<Films> FilmsGenere(const string &g) const;
     
     // Pre: cert
     // Post: retorna el film de la plataforma amb la millor valoració mitjana.
-    Film recomanarMillorFilm() const;
+    Film MillorFilm() const;
     
     // Pre: n > 0
     // Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
-    vector<Film> mostrarMillorsFilms(const int &n) const;
+    vector<Film> MillorsFilms(const int &n) const; // si mida == 0 --> No hi ha films amb valoracions a "Plataforma"
     
     // Pre: cert
     // Post: retorna true si a la plataforma existeix algun film de nom f
@@ -88,8 +88,12 @@ public:
     bool existeixUsuari(const string &u) const;
     
     // Pre: cert
-    // Post: retorna la quantitat de films que hi ha a la plataforma.
-    int nombreTotalFilms() const;
+    // Post: retorna la quantitat de films total que hi ha a la plataforma.
+    int nombreTotalFilms() const; // si es 0 --> No hi ha films enregistrats a "Plataforma"
+    
+    // Pre: cert
+    // Post: retorna la quantitat de films de gènere g que hi ha a la plataforma.
+    int nombreTotalFilmsGenere(const string &g) const; // si es 0 --> No hi ha films de gènere "g" a "Plataforma"
 
     // Modificadors
     
