@@ -17,7 +17,7 @@ Film::Film(){
 // Pre: cert
 // Post: el resultat és un film igual a f.
 Film::Film(const Film &f){
-    *this = f;
+    (*this) = f;
 }
 
 // Pre: cert
@@ -67,13 +67,13 @@ Film::~Film(){
 
 // Pre: cert
 // Post: retorna el títol del film
-string Film::NomFilm() const{
+string Film::nomFilm() const{
     return nom;
 }
 
 // Pre: cert
 // Post: Retorna el gènere del film
-string Film::GenereFilm() const{
+string Film::genereFilm() const{
     return genere;
 }
 
@@ -118,7 +118,7 @@ void Film::novaValoracio(const int &novaval){
 // Pre: cert (completem els detalls de format quan coneguem la implementacio)
 // Post: s'han escrit els atributs del Film f al canal estandard de sortida
 ostream& operator<<(ostream &os, const Film &f){
-    os << "(" << f.nom << ", " << f.genere << ", " << f.puntuacio << ", " << f.nval << ")" << endl;
+    os << " (" << f.nom << ", " << f.genere << ", " << f.puntuacio << ", " << f.nval << ")" << endl;
     return os;
 }
 

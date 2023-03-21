@@ -15,7 +15,7 @@ Usuari::Usuari(){
 // Pre: cert
 // Post: el resultat és un usuari igual a u.
 Usuari::Usuari(const Usuari &u){
-    *this = u;
+    (*this) = u;
 }
 
 // Pre: cert

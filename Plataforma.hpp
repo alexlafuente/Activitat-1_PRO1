@@ -34,7 +34,7 @@ public:
     
     // Pre: cert
     // Post: el resultat és una Plataforma sense nom, amb f films, i sense usuaris.
-    Plataforma(const vector<Films> &f);
+    Plataforma(const vector<Film> &f);
     
     // Pre: cert
     // Post: el resultat és una Plataforma sense nom, sense films i amb u usuaris.
@@ -42,14 +42,14 @@ public:
     
     // Pre: cert
     // Post: el resultat és una Plataforma sense nom, amb f films, i amb u usuaris.
-    Plataforma(const vector<Films> &f, const vector<Usuari> &u);
+    Plataforma(const vector<Film> &f, const vector<Usuari> &u);
     
     // Pre: cert
     // Post: el resultat és una Plataforma amb nom a, amb f films, i amb u usuaris.
-    Plataforma(const string &a, const vector<Films> &f, const vector<Usuari> &u);
+    Plataforma(const string &a, const vector<Film> &f, const vector<Usuari> &u);
     
     // Pre: cert
-    // Post: retorna una Plataforma igual a p
+    // Post: retorna un plataforma igual a p
     Plataforma operator=(const Plataforma &p);
 
     // Destructor
@@ -61,15 +61,15 @@ public:
     
     // Pre: cert
     // Post: retorna la llista de films que conte la plataforma
-    vector<Films> Films() const; // si mida == 0 --> No hi ha usuaris enregistrats a "Plataforma"
+    vector<Film> Films() const; // si mida == 0 --> No hi ha usuaris enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la llista d'usuaris que conte la plataforma
-    vector<Usuaris> Usuaris() const; // si mida == 0 --> No hi ha films enregistrats a "Plataforma"
+    vector<Usuari> Usuaris() const; // si mida == 0 --> No hi ha films enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la llista de films, dels quals el seu gènere coincideix amb l'especificat a g.
-    vector<Films> FilmsGenere(const string &g) const;
+    vector<Film> FilmsGenere(const string &g) const;
     
     // Pre: cert
     // Post: retorna el film de la plataforma amb la millor valoració mitjana.
@@ -82,6 +82,10 @@ public:
     // Pre: cert
     // Post: retorna true si a la plataforma existeix algun film de nom f
     bool existeixFilm(const string &f) const;
+    
+    // Pre: cert
+    // Post: retorna true si a la plataforma existeix algun film amb gènere g
+    bool existeixGenere(const string &g) const;
     
     // Pre: cert
     // Post: retorna true si a la plataforma existeix algun usuari de nom u
@@ -113,6 +117,10 @@ public:
      * l'string u.
      */
     void enregistrarValoracio(const string &u, const string &f, const int &n); // Para detectar si el usuario o la pelicula existen, usar los consultores.
+    
+    // Pre: hi ha com un usuari enretrat a la plataforma
+    // Post: Assgina els identifacdors dels usuaris, en ordre de registre.
+    void assignaIdentificadors();
                 
     // Lectura i escriptura
     

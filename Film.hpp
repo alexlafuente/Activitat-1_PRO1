@@ -54,11 +54,11 @@ public:
     
     // Pre: cert
     // Post: retorna el títol del film
-    string NomFilm() const;
+    string nomFilm() const;
     
     // Pre: cert
     // Post: Retorna el gènere del film
-    string GenereFilm() const;
+    string genereFilm() const;
     
     // Pre: cert
     // Post: retorna la puntuació del film
