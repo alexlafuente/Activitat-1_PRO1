@@ -241,6 +241,9 @@ ostream& operator<<(ostream &os, const Plataforma &p){
     for(int i = 0; i < int(p.films.size()); ++i){
         os << p.films[i];
     }
+    for(int i = 0; i < int(p.usuaris.size()); ++i){
+        os << p.usuaris[i];
+    }
     return os;
 }
 
@@ -258,6 +261,7 @@ istream& operator>>(istream &is, Plataforma &p){
     p.usuaris = vector<Usuari>(n);
     for(int i = 0; i < n; ++i){
         is >> p.usuaris[i];
+        p.usuaris[i].assignaIdentificador(i + 1);
     }
     return is;
 }

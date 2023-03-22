@@ -5,8 +5,11 @@
 using namespace std;
 
 int main() {
-	
+
 	// llegir_dades_plataforma (nom, films i usuaris)
+	Plataforma p;
+	cin >> p;
+	cout << p;
 	//
 	// llegir_opció
 	//
@@ -15,5 +18,5 @@ int main() {
 	//		tractar_opció
 	//
 	//  	llegir_opció
-	
+
 }
