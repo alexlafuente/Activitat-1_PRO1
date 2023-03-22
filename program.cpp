@@ -10,13 +10,37 @@ int main() {
 	Plataforma p;
 	cin >> p;
 	cout << p;
-	//
 	// llegir_opció
-	//
+	string opcio;
+	cin >> opcio;
 	// mentre opció != acabar:
-	//
-	//		tractar_opció
-	//
-	//  	llegir_opció
-
+	while(opcio != "acabar"){
+	//	tractar_opció
+		if(opcio == "mostrarFilms"){
+			
+		}
+		else if(opcio == "mostrarUsuaris"){
+			
+		}
+		else if(opcio == "mostrarUsuaris"){
+			
+		}
+		else if(opcio == "mostrarFilmsGenere"){
+			
+		}
+		else if(opcio == "enregistrarValoracio"){
+			
+		}
+		else if(opcio == "recomanarMillorFilm"){
+			
+		}
+		else if(opcio == "mostrarMillorsFilms"){
+			
+		}
+		else{
+			cout << "Error: Opció no vàlida" << endl;
+		}
+	//  llegir_opció
+		cin >> opcio;
+	}
 }
