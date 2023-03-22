@@ -61,7 +61,7 @@ public:
     
     // Pre: cert
     // Post: retorna la llista de films que conte la plataforma
-    vector<Film> Films() const; // si mida == 0 --> No hi ha usuaris enregistrats a "Plataforma"
+    vector<Film> llistaFilms() const; // si mida == 0 --> No hi ha usuaris enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la llista d'usuaris que conte la plataforma
@@ -69,7 +69,7 @@ public:
     
     // Pre: cert
     // Post: retorna la llista de films, dels quals el seu gènere coincideix amb l'especificat a g.
-    vector<Film> FilmsGenere(const string &g) const;
+    vector<Film> llistaFilmsGenere(const string &g) const;
     
     // Pre: cert
     // Post: retorna el film de la plataforma amb la millor valoració mitjana.

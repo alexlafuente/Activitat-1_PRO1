@@ -71,7 +71,7 @@ Plataforma::~Plataforma(){
 
 // Pre: cert
 // Post: retorna la llista de films que conte la plataforma
-vector<Film> Plataforma::Films() const{
+vector<Film> Plataforma::llistaFilms() const{
     return films;
 }
 
@@ -83,7 +83,7 @@ vector<Usuari> Plataforma::Usuaris() const{
 
 // Pre: cert
 // Post: retorna la llista de films, dels quals el seu gènere coincideix amb l'especificat a g.
-vector<Film> Plataforma::FilmsGenere(const string &g) const{
+vector<Film> Plataforma::llistaFilmsGenere(const string &g) const{
     vector<Film> gaux;
     for(int i = 0; i < int(films.size()); ++i){
         if (films[i].genereFilm() == g){
@@ -237,7 +237,7 @@ void Plataforma::assignaIdentificadors(){
 // Pre: cert (completem els detalls de format quan coneguem la implementacio)
 // Post: s'han escrit els atributs de la Plataforma p al canal estandard de sortida
 ostream& operator<<(ostream &os, const Plataforma &p){
-    os << "Films a " << p.nom << " (ordre d'alta):";
+    os << "Films a " << p.nom << " (ordre d'alta):" << endl;
     for(int i = 0; i < int(p.films.size()); ++i){
         os << p.films[i];
     }
@@ -250,16 +250,14 @@ istream& operator>>(istream &is, Plataforma &p){
     is >> p.nom;
     int n;
     is >> n;
+    p.films = vector<Film>(n);
     for(int i = 0; i < n; ++i){
-        Film faux;
-        is >> faux;
-        p.films.push_back(faux);
+        is >> p.films[i];
     }
     is >> n;
+    p.usuaris = vector<Usuari>(n);
     for(int i = 0; i < n; ++i){
-        Usuari uaux;
-        is >> uaux;
-        p.usuaris.push_back(uaux);
+        is >> p.usuaris[i];
     }
     return is;
 }
