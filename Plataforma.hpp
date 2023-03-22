@@ -50,7 +50,7 @@ public:
     
     // Pre: cert
     // Post: retorna un plataforma igual a p
-    Plataforma operator=(const Plataforma &p);
+    Plataforma& operator=(const Plataforma &p);
 
     // Destructor
     
@@ -60,12 +60,16 @@ public:
     // Consultors
     
     // Pre: cert
+    // Post: retorna el nom de la plataforma
+    string nomPlataforma() const;
+    
+    // Pre: cert
     // Post: retorna la llista de films que conte la plataforma
     vector<Film> llistaFilms() const; // si mida == 0 --> No hi ha usuaris enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la llista d'usuaris que conte la plataforma
-    vector<Usuari> Usuaris() const; // si mida == 0 --> No hi ha films enregistrats a "Plataforma"
+    vector<Usuari> llistaUsuaris() const; // si mida == 0 --> No hi ha films enregistrats a "Plataforma"
     
     // Pre: cert
     // Post: retorna la llista de films, dels quals el seu gènere coincideix amb l'especificat a g.
@@ -73,11 +77,11 @@ public:
     
     // Pre: cert
     // Post: retorna el film de la plataforma amb la millor valoració mitjana.
-    Film MillorFilm() const;
+    Film millorFilm() const;
     
     // Pre: n > 0
     // Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
-    vector<Film> MillorsFilms(const int &n) const; // si mida == 0 --> No hi ha films amb valoracions a "Plataforma"
+    vector<Film> millorsFilms(const int &n) const; // si mida == 0 --> No hi ha films amb valoracions a "Plataforma"
     
     // Pre: cert
     // Post: retorna true si a la plataforma existeix algun film de nom f
@@ -112,10 +116,11 @@ public:
     // Modificadors
     
     // Pre: 1 <= n >= 5
-    /* Post: es calcula la valoració mitjana d'aquell film que el seu nom correspon a l'string f, afegint l'enter n al càlcul.
+    /* Post: calcula la valoració mitjana d'aquell film que el seu nom correspon a l'string f, afegint la valoració en forma de l'enter n, aportada per 
+     * l'usuari u.
      * També s'augmenten en 1 el nombre de valoracions d'aquest film, i el nombre de valoracions enregistrades d'aquell usuari que el seu nom correspon a 
      * l'string u.
-     */
+    */
     void enregistrarValoracio(const string &u, const string &f, const int &n); // Para detectar si el usuario o la pelicula existen, usar los consultores.
     
     // Pre: hi ha com un usuari enretrat a la plataforma

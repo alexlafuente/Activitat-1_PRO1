@@ -36,7 +36,7 @@ Usuari::Usuari(const string &a, const int &i){
 
 // Pre: cert
 // Post: retorna un Usuari igual a u.
-Usuari Usuari::operator=(const Usuari &u){
+Usuari& Usuari::operator=(const Usuari &u){
     this->id = u.id;
     this->nickname = u.nickname;
     this->numval = u.numval;
@@ -99,7 +99,7 @@ void Usuari::assignaIdentificador(const int &i){
 // Pre: cert (completem els detalls de format quan coneguem la implementacio)
 // Post: s'han escrit els atributs de l'Usuari u al canal estandard de sortida
 ostream& operator<<(ostream &os, const Usuari &u){
-    os << u.id << " | " << u.nickname << " | " << u.numval << endl;
+    os << " " << u.id << " | " << u.nickname << " | " << u.numval << endl;
     return os;
 }
 

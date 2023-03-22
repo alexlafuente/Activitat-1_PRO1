@@ -36,7 +36,7 @@ public:
     
     // Pre: cert
     // Post: retorna un Usuari igual a u.
-    Usuari operator=(const Usuari &u);
+    Usuari& operator=(const Usuari &u);
     
     /*
      * // Pre: cert

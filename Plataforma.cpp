@@ -58,7 +58,7 @@ Plataforma::Plataforma(const string &a, const vector<Film> &f, const vector<Usua
 
 // Pre: cert
 // Post: retorna una plataforma igual a p
-Plataforma Plataforma::operator=(const Plataforma &p){
+Plataforma& Plataforma::operator=(const Plataforma &p){
     this->nom = p.nom;
     this->films = p.films;
     this->usuaris = p.usuaris;
@@ -70,6 +70,12 @@ Plataforma::~Plataforma(){
 }
 
 // Pre: cert
+// Post: retorna el nom de la plataforma
+string Plataforma::nomPlataforma() const{
+    return nom;
+}
+
+// Pre: cert
 // Post: retorna la llista de films que conte la plataforma
 vector<Film> Plataforma::llistaFilms() const{
     return films;
@@ -77,7 +83,7 @@ vector<Film> Plataforma::llistaFilms() const{
 
 // Pre: cert
 // Post: retorna la llista d'usuaris que conte la plataforma
-vector<Usuari> Plataforma::Usuaris() const{
+vector<Usuari> Plataforma::llistaUsuaris() const{
     return usuaris;
 }
 
@@ -95,13 +101,16 @@ vector<Film> Plataforma::llistaFilmsGenere(const string &g) const{
 
 // Pre: cert
 // Post: retorna el film de la plataforma amb la millor valoració mitjana.
-Film Plataforma::MillorFilm() const{
+Film Plataforma::millorFilm() const{
     Film millor;
-    int max = 0;
     for(int i = 0; i < int(films.size()); ++i){
-        if(max < films[i].punts()){
-            max = films[i].punts();
+        if(millor.punts() < films[i].punts()){
             millor = films[i];
+        }
+        else if(millor.punts() == films[i].punts()){
+            if(films[i].numvots() >= millor.numvots()){
+                millor = films[i];
+            }
         }
     }
     return millor;
@@ -109,7 +118,7 @@ Film Plataforma::MillorFilm() const{
 
 // Pre: n > 0
 // Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
-vector<Film> Plataforma::MillorsFilms(const int &n) const{
+vector<Film> Plataforma::millorsFilms(const int &n) const{
     vector<Film> millors;
     vector<Film> faux = films;
     // Insertion sort
@@ -150,7 +159,9 @@ bool Plataforma::existeixFilm(const string &f) const{
         if(f == films[i].nomFilm()){
             trobat = true;
         }
-        ++i;
+        else{
+          ++i;  
+        }
     }
     return trobat;
 }
@@ -164,7 +175,9 @@ bool Plataforma::existeixGenere(const string &g) const{
         if(g == films[i].genereFilm()){
             trobat = true;
         }
-        ++i;
+        else{
+            ++i; 
+        }
     }
     return trobat;
 }
@@ -178,7 +191,9 @@ bool Plataforma::existeixUsuari(const string &u) const{
         if(u == usuaris[i].sobrenom()){
             trobat = true;
         }
-        ++i;
+        else{
+            ++i;  
+        }   
     }
     return trobat;
 }
@@ -203,7 +218,8 @@ bool Plataforma::hiHaUsuaris() const{
     return trobat;
 }
 
-/* Post: es calcula la valoració mitjana d'aquell film que el seu nom correspon a l'string f, afegint l'enter n al càlcul.
+// Pre: 1 <= n >= 5
+/* Post: calcula la valoració mitjana d'aquell film que el seu nom correspon a l'string f, afegint la valoració en forma de l'enter n, aportada per l'usuari u.
 * També s'augmenten en 1 el nombre de valoracions d'aquest film, i el nombre de valoracions enregistrades d'aquell usuari que el seu nom correspon a 
 * l'string u.
 */
@@ -215,6 +231,9 @@ void Plataforma::enregistrarValoracio(const string &u, const string &f, const in
             trobat = true;
             usuaris[i].augmentaValoracions();
         }
+        else{
+            ++i;
+        }
     }
     trobat = false;
     i = 0;
@@ -222,6 +241,9 @@ void Plataforma::enregistrarValoracio(const string &u, const string &f, const in
         if(f == films[i].nomFilm()){
             trobat = true;
             films[i].novaValoracio(n);
+        }
+        else{
+            ++i;
         }
     }
 }
@@ -241,6 +263,7 @@ ostream& operator<<(ostream &os, const Plataforma &p){
     for(int i = 0; i < int(p.films.size()); ++i){
         os << p.films[i];
     }
+    os << "Usuaris de " << p.nom << " (ordre d'alta):" << endl;
     for(int i = 0; i < int(p.usuaris.size()); ++i){
         os << p.usuaris[i];
     }

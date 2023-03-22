@@ -1,4 +1,5 @@
 #include "Film.hpp"
+#include <iomanip>
 
 // IMPLMENTACIÓ DE LA CLASSE FILM
 // (implementació del codi de tots els mètodes especificats en el fitxer Film.hpp)
@@ -10,7 +11,7 @@
 Film::Film(){
     nom = "";
     genere = "";
-    puntuacio = 0;
+    puntuacio = 0.0;
     nval = 0;
 }
 
@@ -25,7 +26,7 @@ Film::Film(const Film &f){
 Film::Film(const string &a, const string &b){
     nom = a;
     genere = b;
-    puntuacio = 0;
+    puntuacio = 0.0;
     nval = 0;
 }
 
@@ -40,7 +41,7 @@ Film::Film(const string &a, const string &b, const double &c, const int &d){
 
 // Pre: cert
 // Post: retorna un film igual a f
-Film Film::operator=(const Film &f){
+Film& Film::operator=(const Film &f){
     this->nom = f.nom;
     this->genere = f.genere;
     this->puntuacio = f.puntuacio;
@@ -118,7 +119,14 @@ void Film::novaValoracio(const int &novaval){
 // Pre: cert (completem els detalls de format quan coneguem la implementacio)
 // Post: s'han escrit els atributs del Film f al canal estandard de sortida
 ostream& operator<<(ostream &os, const Film &f){
-    os << " (" << f.nom << ", " << f.genere << ", " << f.puntuacio << ", " << f.nval << ")" << endl;
+    os << " (" << f.nom << ", " << f.genere << ", ";
+    if(int(f.puntuacio * 10) % 10 == 0){
+        os << f.puntuacio << ".0";
+    }
+    else{
+        os << setprecision(1) << f.puntuacio;
+    }
+    os << ", " << f.nval << ")" << endl;
     return os;
 }
 

@@ -37,7 +37,7 @@ public:
     
     // Pre: cert
     // Post: retorna un film igual a f
-    Film operator=(const Film &f);
+    Film& operator=(const Film &f);
     
 /*
     //Pre: cert
