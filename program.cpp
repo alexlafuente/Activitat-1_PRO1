@@ -61,13 +61,10 @@ int main(){
 			cout << "Nova valoració:" << endl;
 			string unom;
 			cin >> unom;
-			cout << unom << endl;
 			string fnom;
 			cin >> fnom;
-			cout << fnom << endl;
 			int fval;
 			cin >> fval;
-			cout << fval << endl;
 			if(not p.existeixUsuari(unom)){
 				cout << " Error: " << unom << " usuari no enregistrat a " << p.nomPlataforma() << endl;
 			}
@@ -77,7 +74,7 @@ int main(){
 				}
 				else{
 					if(fval < 1 or fval > 5){
-						cout << "Error: " << fval << " nombre de punts no vàlid, no s'ha afegit" << endl;
+						cout << " Error: " << fval << " nombre de punts no vàlid, no s'ha afegit" << endl;
 					}
 					else{
 						p.enregistrarValoracio(unom, fnom, fval);
@@ -87,16 +84,30 @@ int main(){
 			}	
 		}
 		else if(opcio == "recomanarMillorFilm"){
-			cout << "Film recomanat a NetFilms:" << endl;
+			cout << "Film recomanat a " << p.nomPlataforma() << ":" << endl;
 			if(not p.hiHaFilms()){
-				cout << "No hi ha films amb valoracions a " << p.nomPlataforma() << endl;
+				cout << " No hi ha films amb valoracions a " << p.nomPlataforma() << endl;
 			}
 			else{
 				cout << " " << p.millorFilm() << endl;
 			}
 		}
 		else if(opcio == "mostrarMillorsFilms"){
-			
+			int n;
+			cin >> n;
+			cout << "Films amb millors valoracions a " << p.nomPlataforma() << " (" << n << " millors):" << endl;
+			if(n < 1){
+				cout << " Error: " << n << " valor no vàlid" << endl;
+			}
+			else if(not p.hiHaFilms()){
+				cout << " No hi ha films amb valoracions a " << p.nomPlataforma() << endl;
+			}
+			else{
+				vector<Film> faux = p.millorsFilms(n);
+				for(int i = 0; i < int(faux.size()); ++i){
+					cout << faux[i];
+				}
+			}
 		}
 		else{
 			cout << "Error: Opció no vàlida" << endl;

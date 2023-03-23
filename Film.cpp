@@ -124,7 +124,7 @@ ostream& operator<<(ostream &os, const Film &f){
         os << f.puntuacio << ".0";
     }
     else{
-        os << setprecision(1) << f.puntuacio;
+        os << setprecision(2) << f.puntuacio;
     }
     os << ", " << f.nval << ")" << endl;
     return os;

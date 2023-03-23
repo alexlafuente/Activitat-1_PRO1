@@ -79,6 +79,10 @@ public:
     // Post: retorna el film de la plataforma amb la millor valoració mitjana.
     Film millorFilm() const;
     
+    // Pre: cert
+    // Post: retorna un vector amb els films de plataforma ordenats per mitjana de valoracions, i en cas de ser iguals, lexicogràficament
+    vector<Film> llistaFilmsOrdenats() const;
+    
     // Pre: n > 0
     // Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
     vector<Film> millorsFilms(const int &n) const; // si mida == 0 --> No hi ha films amb valoracions a "Plataforma"

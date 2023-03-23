@@ -116,38 +116,60 @@ Film Plataforma::millorFilm() const{
     return millor;
 }
 
-// Pre: n > 0
-// Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
-vector<Film> Plataforma::millorsFilms(const int &n) const{
+// Pre: cert
+// Post: retorna un vector amb els films de plataforma ordenats per mitjana de valoracions, i en cas de ser iguals, lexicogràficament
+vector<Film> Plataforma::llistaFilmsOrdenats() const{
     vector<Film> millors;
     vector<Film> faux = films;
     // Insertion sort
     for(int i = 1; i < int(faux.size()); ++i){
         Film x = faux[i];
         int j = i;
-        while(j > 0 and faux[j - 1].punts() > x.punts()){
-            faux[j] = faux[j - 1];
-            --j;
-            // Potser malament
-            if(faux[j - 1].punts() == x.punts()){
-                if(faux[j - 1].numvots() > x.numvots()){
-                    faux[j] = faux[j - 1];
-                }
+        while(j > 0 and faux[j - 1].punts() < x.punts()){
+            if(faux[j - 1].punts() < x.punts()){
+                faux[j] = faux[j - 1];
             }
+            // Potser malament
+            --j;
             // Potser malament
         }
         faux[j] = x;
     }
+    
+    // for(int i = 1; i < int(faux.size()); ++i){
+    //     Film x = faux[i];
+    //     int j = i;
+    //     while(j > 0 and faux[j - 1].punts() == x.punts()){
+    //         if(faux[j - 1].punts() == x.punts()){
+    //             if(faux[j - 1].nomFilm() > x.nomFilm()){
+    //                 faux[j] = faux[j - 1];
+    //             }
+    //         }
+    //         // Potser malament
+    //         --j;
+    //         // Potser malament
+    //         faux[j] = x;
+    //     }
+    // }
+    return faux;
+}
+
+// Pre: n > 0
+// Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
+vector<Film> Plataforma::millorsFilms(const int &n) const{
+    vector <Film> faux;
+    vector<Film> fordenats = (*this).llistaFilmsOrdenats();
     if(n > int(films.size())){
-        millors = faux;
+        faux = fordenats;
         // for(int i = 0; i < int(films.size()); ++i){}
     }
     else{
-        for(int i = n - 1; i >= 0; --i){
-            millors.push_back(faux[i]);
+        faux = vector<Film>(n);
+        for(int i = 0; i < n; ++i){
+            faux[i] = fordenats[i];
         }
     }
-    return millors;
+    return faux;
 }
 
 // Pre: cert
