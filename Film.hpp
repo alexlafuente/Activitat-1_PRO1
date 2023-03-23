@@ -68,13 +68,13 @@ public:
     // Post: retorna el nombre de vots del film
     int numvots() const;
     
-    // Pre: f té una valoració.
+    // Pre: cert
     // Post: retorna si f està millor valorat.
     bool millorValorat(const Film &f) const;
     
     // Modificadors
     
-    // Pre: novaval té un enter de l'1 al 5.
+    // Pre: 1 <= novaval >= 5.
     // Post: puntuacio conté la puntuació mitjana contant la nova valoració, i nval augmenta en 1.
     void novaValoracio(const int &novaval);
             

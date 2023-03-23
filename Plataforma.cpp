@@ -76,19 +76,19 @@ string Plataforma::nomPlataforma() const{
 }
 
 // Pre: cert
-// Post: retorna la llista de films que conte la plataforma
+// Post: retorna un vector amb tots els films que conte la plataforma
 vector<Film> Plataforma::llistaFilms() const{
     return films;
 }
 
 // Pre: cert
-// Post: retorna la llista d'usuaris que conte la plataforma
+// Post: retorna un vector amb tots els usuaris que conté la plataforma
 vector<Usuari> Plataforma::llistaUsuaris() const{
     return usuaris;
 }
 
-// Pre: cert
-// Post: retorna la llista de films, dels quals el seu gènere coincideix amb l'especificat a g.
+// Pre: g no está buit i mida de films > 0
+// Post: retorna un vector amb els films de la plataforma, dels quals el seu gènere coincideix amb l'especificat a g.
 vector<Film> Plataforma::llistaFilmsGenere(const string &g) const{
     vector<Film> gaux;
     for(int i = 0; i < int(films.size()); ++i){
@@ -99,7 +99,7 @@ vector<Film> Plataforma::llistaFilmsGenere(const string &g) const{
     return gaux;
 }
 
-// Pre: cert
+// Pre: mida de films > 0
 // Post: retorna el film de la plataforma amb la millor valoració mitjana.
 Film Plataforma::millorFilm() const{
     Plataforma paux = (*this);
@@ -107,8 +107,8 @@ Film Plataforma::millorFilm() const{
     return paux.films[0];
 }
 
-// Pre: cert
-// Post: retorna un vector amb els films de plataforma ordenats per mitjana de valoracions, i en cas de ser iguals, lexicogràficament
+// Pre: mida de films > 0
+// Post: retorna un vector amb els tots films de plataforma, ordenats per mitjana de valoracions, i en cas de ser iguals, lexicogràficament
 vector<Film> Plataforma::llistaFilmsOrdenats() const{
     vector<Film> millors;
     vector<Film> faux = films;
@@ -145,8 +145,9 @@ vector<Film> Plataforma::llistaFilmsOrdenats() const{
     return faux;
 }
 
-// Pre: n > 0
-// Post: retorna la llista  d'n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor.
+// Pre: n > 0 i mida de films > 0
+/* Post: retorna un vector amb dels n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor. En cas d'empat, l'ordre és 
+ * lexcogràfic */
 vector<Film> Plataforma::millorsFilms(const int &n) const{
     vector <Film> faux;
     vector<Film> fordenats = (*this).llistaFilmsOrdenats();
@@ -163,7 +164,7 @@ vector<Film> Plataforma::millorsFilms(const int &n) const{
     return faux;
 }
 
-// Pre: cert
+// Pre: f no està buit i mida de films > 0
 // Post: retorna true si a la plataforma existeix algun film de nom f
 bool Plataforma::existeixFilm(const string &f) const{
     bool trobat = false;
@@ -179,7 +180,7 @@ bool Plataforma::existeixFilm(const string &f) const{
     return trobat;
 }
 
-// Pre: cert
+// Pre: g no está buit i mida de films > 0
 // Post: retorna true si a la plataforma existeix algun film amb gènere g
 bool Plataforma::existeixGenere(const string &g) const{
     bool trobat = false;
@@ -195,7 +196,7 @@ bool Plataforma::existeixGenere(const string &g) const{
     return trobat;
 }
 
-// Pre: cert
+// Pre: u no està buit i mida d'usuaris > 0
 // Post: retorna true si a la plataforma existeix algun usuari de nom u
 bool Plataforma::existeixUsuari(const string &u) const{
     bool trobat = false;
@@ -231,7 +232,7 @@ bool Plataforma::hiHaUsuaris() const{
     return trobat;
 }
 
-// Pre: 1 <= n >= 5
+// Pre: 1 <= n >= 5 i mida d'usuaris > 0
 /* Post: calcula la valoració mitjana d'aquell film que el seu nom correspon a l'string f, afegint la valoració en forma de l'enter n, aportada per l'usuari u.
 * També s'augmenten en 1 el nombre de valoracions d'aquest film, i el nombre de valoracions enregistrades d'aquell usuari que el seu nom correspon a 
 * l'string u.
@@ -261,15 +262,15 @@ void Plataforma::enregistrarValoracio(const string &u, const string &f, const in
     }
 }
 
-// Pre: hi ha com un usuari enretrat a la plataforma
-// Post: Assgina els identifacdors dels usuaris, en ordre de registre.
+// Pre: mida d'usuaris > 0
+// Post: Assgina els identificadors dels usuaris, en ordre de registre (els identificadors són enters > 0, i s'assignen en ordre consecutiu).
 void Plataforma::assignaIdentificadors(){
     for(int i = 0; i < int(usuaris.size()); ++i){
         usuaris[i].assignaIdentificador(i + 1);
     }
 }
 
-// Pre: cert (completem els detalls de format quan coneguem la implementacio)
+// Pre: mida de films i d'usuaris > 0
 // Post: s'han escrit els atributs de la Plataforma p al canal estandard de sortida
 ostream& operator<<(ostream &os, const Plataforma &p){
     os << "Films a " << p.nom << " (ordre d'alta):" << endl;

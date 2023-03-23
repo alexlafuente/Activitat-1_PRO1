@@ -82,7 +82,7 @@ public:
                 
     // Lectura i escriptura
     
-    // Pre: cert (completem els detalls de format quan coneguem la implementacio)
+    // Pre: cert
     // Post: s'han escrit els atributs de l'Usuari u al canal estandard de sortida
     friend ostream& operator<<(ostream &os, const Usuari &u);
     

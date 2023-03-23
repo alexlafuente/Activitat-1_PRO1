@@ -90,7 +90,7 @@ int Film::numvots() const{
     return nval;
 }
 
-// Pre: f té una valoració.
+// Pre: cert
 // Post: retorna si f està millor valorat.
 bool Film::millorValorat(const Film &f) const{
     bool millor = false;
@@ -107,7 +107,7 @@ bool Film::millorValorat(const Film &f) const{
 
 // Modificadors
 
-// Pre: novaval té un enter de l'1 al 5.
+// Pre: 1 <= novaval >= 5.
 // Post: puntuacio conté la puntuació mitjana contant la nova valoració, i nval augmenta en 1.
 void Film::novaValoracio(const int &novaval){
     puntuacio = ((puntuacio*nval + novaval)/(nval + 1));
@@ -116,7 +116,7 @@ void Film::novaValoracio(const int &novaval){
 
 // Lectura i escriptura
 
-// Pre: cert (completem els detalls de format quan coneguem la implementacio)
+// Pre: cert
 // Post: s'han escrit els atributs del Film f al canal estandard de sortida
 ostream& operator<<(ostream &os, const Film &f){
     os << " (" << f.nom << ", " << f.genere << ", ";
