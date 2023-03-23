@@ -298,15 +298,27 @@ istream& operator>>(istream &is, Plataforma &p){
     is >> p.nom;
     int n;
     is >> n;
-    p.films = vector<Film>(n);
     for(int i = 0; i < n; ++i){
-        is >> p.films[i];
+        Film f;
+        is >> f;
+        if(p.existeixFilm(f.nomFilm())){
+            cout << " Error: " << f.nomFilm() << " film ja existent a " << p.nom << ", no s'ha afegit" << endl;
+        }
+        else{
+            p.films.push_back(f);
+        }
     }
     is >> n;
-    p.usuaris = vector<Usuari>(n);
     for(int i = 0; i < n; ++i){
-        is >> p.usuaris[i];
-        p.usuaris[i].assignaIdentificador(i + 1);
+        Usuari u;
+        is >> u;
+        if(p.existeixUsuari(u.sobrenom())){
+            cout << " Error: " << u.sobrenom() << " usuari ja existent a " << p.nom << ", no s'ha afegit" << endl;
+        }
+        else{
+            p.usuaris.push_back(u);
+            p.usuaris[int(p.usuaris.size()) - 1].assignaIdentificador(int(p.usuaris.size()));
+        }
     }
     return is;
 }
