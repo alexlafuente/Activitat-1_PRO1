@@ -89,7 +89,7 @@ int main(){
 				cout << " No hi ha films amb valoracions a " << p.nomPlataforma() << endl;
 			}
 			else{
-				cout << " " << p.millorFilm() << endl;
+				cout << p.millorFilm();
 			}
 		}
 		else if(opcio == "mostrarMillorsFilms"){

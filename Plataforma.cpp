@@ -102,18 +102,9 @@ vector<Film> Plataforma::llistaFilmsGenere(const string &g) const{
 // Pre: cert
 // Post: retorna el film de la plataforma amb la millor valoració mitjana.
 Film Plataforma::millorFilm() const{
-    Film millor;
-    for(int i = 0; i < int(films.size()); ++i){
-        if(millor.punts() < films[i].punts()){
-            millor = films[i];
-        }
-        else if(millor.punts() == films[i].punts()){
-            if(films[i].numvots() >= millor.numvots()){
-                millor = films[i];
-            }
-        }
-    }
-    return millor;
+    Plataforma paux = (*this);
+    paux.films = llistaFilmsOrdenats();
+    return paux.films[0];
 }
 
 // Pre: cert
