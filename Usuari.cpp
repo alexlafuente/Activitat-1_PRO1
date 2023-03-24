@@ -43,25 +43,6 @@ Usuari& Usuari::operator=(const Usuari &u){
     return *this;
 }
 
-/*
-* // Pre: cert
-* // Post: el resultat és un usuari amb sobrenom buit, amb identificador i, amb 0 valoracions enregistrades.
-* Usuari::Usuari(int i){
-*   nickname = "";
-*   id = i;
-*   numval = 0;
-* }
-* 
-* 
-* // Pre: cert
-* // Post: // Post: el resultat és un usuari amb sobrenom buit, amb identificador i, amb n valoracions enregistrades.
-* Usuari::Usuari(int i, int n){
-*   nickname = "";
-*   id = i;
-*   numval = n;
-* }
-*/
-
 // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
 Usuari::~Usuari(){
 }

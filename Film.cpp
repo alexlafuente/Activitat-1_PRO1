@@ -49,17 +49,6 @@ Film& Film::operator=(const Film &f){
     return *this;
 }
 
-/*
-//Pre: cert
-// Post: el resultat és un film sense nom i sense gènere, amb puntuacio c i d valoracions.
-Film::Film(const double &c, const int &d){
-    nom = "";
-    genere = "";
-    puntuacio = c;
-    nval = d;
-}
- */
-
 // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat
 Film::~Film(){
 }

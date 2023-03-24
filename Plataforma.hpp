@@ -65,11 +65,11 @@ public:
     
     // Pre: cert
     // Post: retorna un vector amb tots els films que conte la plataforma
-    vector<Film> llistaFilms() const; // si mida == 0 --> No hi ha usuaris enregistrats a "Plataforma"
+    vector<Film> llistaFilms() const;
     
     // Pre: cert
     // Post: retorna un vector amb tots els usuaris que conté la plataforma
-    vector<Usuari> llistaUsuaris() const; // si mida == 0 --> No hi ha films enregistrats a "Plataforma"
+    vector<Usuari> llistaUsuaris() const;
     
     // Pre: g no está buit i mida de films > 0
     // Post: retorna un vector amb els films de la plataforma, dels quals el seu gènere coincideix amb l'especificat a g.
@@ -84,9 +84,9 @@ public:
     vector<Film> llistaFilmsOrdenats() const;
     
     // Pre: n > 0 i mida de films > 0
-/* Post: retorna un vector amb dels n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor. En cas d'empat, l'ordre és 
- * lexcogràfic */
-    vector<Film> millorsFilms(const int &n) const; // si mida == 0 --> No hi ha films amb valoracions a "Plataforma"
+    /* Post: retorna un vector amb dels n films de la plataforma amb les millors valoracions mitjanes, en ordre de millor a pitjor. En cas d'empat, l'ordre és 
+    * lexcogràfic */
+    vector<Film> millorsFilms(const int &n) const;
     
     // Pre: f no està buit i mida de films > 0
     // Post: retorna true si a la plataforma existeix algun film de nom f
@@ -108,16 +108,6 @@ public:
     // Post: retorna true si la plataforma conté algun usuari
     bool hiHaUsuaris() const;
     
-    /*
-    // Pre: cert
-    // Post: retorna la quantitat de films total que hi ha a la plataforma.
-    int nombreTotalFilms() const; // si es 0 --> No hi ha films enregistrats a "Plataforma"
-    
-    // Pre: cert
-    // Post: retorna la quantitat de films de gènere g que hi ha a la plataforma.
-    int nombreTotalFilmsGenere(const string &g) const; // si es 0 --> No hi ha films de gènere "g" a "Plataforma"
-    */
-    
     // Modificadors
     
     // Pre: 1 <= n >= 5 i mida d'usuaris > 0
@@ -126,7 +116,7 @@ public:
      * També s'augmenten en 1 el nombre de valoracions d'aquest film, i el nombre de valoracions enregistrades d'aquell usuari que el seu nom correspon a 
      * l'string u.
     */
-    void enregistrarValoracio(const string &u, const string &f, const int &n); // Para detectar si el usuario o la pelicula existen, usar los consultores.
+    void enregistrarValoracio(const string &u, const string &f, const int &n);
     
     // Pre: mida d'usuaris > 0
     // Post: Assgina els identificadors dels usuaris, en ordre de registre (els identificadors són enters > 0, i s'assignen en ordre consecutiu).

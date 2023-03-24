@@ -38,12 +38,6 @@ public:
     // Pre: cert
     // Post: retorna un film igual a f
     Film& operator=(const Film &f);
-    
-/*
-    //Pre: cert
-    // Post: el resultat és un film sense nom i sense gènere, amb puntuacio c i d valoracions.
-    Film(const double &c, const int &d);  
-*/
 
     // Destructor
     // Post: esborra automaticament els objectes locals en sortir d'un ambit de visibilitat

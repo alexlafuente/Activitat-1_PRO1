@@ -37,19 +37,6 @@ public:
     // Pre: cert
     // Post: retorna un Usuari igual a u.
     Usuari& operator=(const Usuari &u);
-    
-    /*
-     * // Pre: cert
-     * // Post: el resultat és un usuari amb sobrenom buit, amb identificador i, amb 0 valoracions enregistrades.
-     * Usuari(int i);
-     * 
-     * 
-     * // Pre: cert
-     * // Post: // Post: el resultat és un usuari amb sobrenom buit, amb identificador i, amb n valoracions enregistrades.
-     * Usuari(int i, int n);
-     */
-    
-    //...
         
     // Destructor
     
