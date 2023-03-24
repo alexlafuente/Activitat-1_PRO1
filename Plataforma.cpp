@@ -112,6 +112,7 @@ Film Plataforma::millorFilm() const{
 vector<Film> Plataforma::llistaFilmsOrdenats() const{
     vector<Film> millors;
     vector<Film> faux = films;
+    vector<Film> faux2(2); 
     // Insertion sort
     for(int i = 1; i < int(faux.size()); ++i){
         Film x = faux[i];
@@ -126,22 +127,24 @@ vector<Film> Plataforma::llistaFilmsOrdenats() const{
         }
         faux[j] = x;
     }
-    
-    // for(int i = 1; i < int(faux.size()); ++i){
-    //     Film x = faux[i];
-    //     int j = i;
-    //     while(j > 0 and faux[j - 1].punts() == x.punts()){
-    //         if(faux[j - 1].punts() == x.punts()){
-    //             if(faux[j - 1].nomFilm() > x.nomFilm()){
-    //                 faux[j] = faux[j - 1];
-    //             }
-    //         }
-    //         // Potser malament
-    //         --j;
-    //         // Potser malament
-    //         faux[j] = x;
-    //     }
-    // }
+
+    for(int i = 1; i < int(faux.size()); ++i){
+        Film x = faux[i];
+        int j = i;
+        while(j > 0 and faux[j - 1].punts() == x.punts()){
+           if(faux[j - 1].punts() == x.punts()){
+               if(faux[j - 1].nomFilm() > faux[j].nomFilm()){
+                   faux2[0] = faux[j-1];
+                   faux2[1] = faux[j];
+                   faux[j-1] = faux2[1];
+                   faux[j] = faux2[0];
+               }
+            }
+            // Potser malament
+            --j;
+            // Potser malament
+        }
+    }
     return faux;
 }
 
