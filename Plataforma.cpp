@@ -121,9 +121,7 @@ vector<Film> Plataforma::llistaFilmsOrdenats() const{
             if(faux[j - 1].punts() < x.punts()){
                 faux[j] = faux[j - 1];
             }
-            // Potser malament
             --j;
-            // Potser malament
         }
         faux[j] = x;
     }
