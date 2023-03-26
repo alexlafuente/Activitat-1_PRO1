@@ -140,9 +140,7 @@ vector<Film> Plataforma::llistaFilmsOrdenats() const{
                    faux[j] = faux2[0];
                }
             }
-            // Potser malament
             --j;
-            // Potser malament
         }
     }
     return faux;
